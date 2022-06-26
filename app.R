@@ -7,8 +7,8 @@ library(tidyr)
 library(purrr)
 library(rlang)
 
-adsl <- haven::read_xpt(url("https://github.com/phuse-org/TestDataFactory/raw/main/Updated/TDF_ADaM/adsl.xpt"))
-adas <- haven::read_xpt(url("https://github.com/phuse-org/TestDataFactory/raw/main/Updated/TDF_ADaM/adadas.xpt"))
+load("./data/adsl.Rdata")
+load("./data/adas.Rdata")
 
 tab <- tplyr_table(adas, TRTP, where=EFFFL == "Y" & ITTFL == "Y" & PARAMCD == "ACTOT" & ANL01FL == "Y") %>%
   set_pop_data(adsl) %>%
